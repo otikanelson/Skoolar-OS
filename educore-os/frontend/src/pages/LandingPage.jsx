@@ -31,7 +31,7 @@ const LandingPage = () => {
             </div>
             <div className="flex gap-6">
               <Link to="/login" className="text-gray-700 mt-2 hover:text-gray-900 text-sm font-medium">School Login</Link>
-              <Link to="/login/user" className="bg-[#1e3a8a] text-white px-4 py-2 text-sm font-medium hover:bg-[#1e293b]">
+              <Link to="/login/direct" className="bg-[#1e3a8a] text-white px-4 py-2 text-sm font-medium hover:bg-[#1e293b]">
                 Request Access
               </Link>
             </div>
