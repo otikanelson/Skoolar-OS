@@ -1,0 +1,58 @@
+╔══════════════════════════════════════════════════════════════╗
+║                  EDUCORE OS - DEPLOY NOW                     ║
+║                    Quick Reference Card                       ║
+╚══════════════════════════════════════════════════════════════╝
+
+📦 STEP 1: PUSH TO GITHUB (2 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  git init
+  git add .
+  git commit -m "Deploy EduCore OS"
+  git remote add origin https://github.com/YOUR_USERNAME/educore-os.git
+  git push -u origin main
+
+🌐 STEP 2: DEPLOY FRONTEND (1 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. Go to: vercel.com
+  2. Click: "Add New Project"
+  3. Import: Your GitHub repo
+  4. Configure:
+     ├─ Root Directory: educore-os/frontend
+     ├─ Framework: Vite
+     ├─ Build Command: npm run build
+     └─ Output Directory: dist
+  5. Deploy!
+
+⚙️ STEP 3: DEPLOY BACKEND (1 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. Click: "Add New Project" (again)
+  2. Import: SAME GitHub repo
+  3. Configure:
+     ├─ Root Directory: educore-os/backend
+     ├─ Framework: Other
+     ├─ Build Command: npm run build
+     └─ Output Directory: dist
+  4. Add Environment Variable:
+     └─ JWT_SECRET=educore-secret-2024-change-this-32chars
+  5. Deploy!
+
+🔗 STEP 4: CONNECT THEM (1 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. Copy backend URL (e.g., https://educore-backend.vercel.app)
+  2. Go to frontend project → Settings → Environment Variables
+  3. Add:
+     └─ VITE_API_URL=https://educore-backend.vercel.app/api
+  4. Redeploy frontend
+
+✅ DONE! TEST IT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Visit: https://educore-frontend.vercel.app
+  Login: admin@fieldgreen.edu / password123
+
+📚 NEED HELP?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Quick Guide: QUICK_DEPLOY.md
+  Full Guide: VERCEL_DEPLOYMENT_GUIDE.md
+  Checklist: PRE_DEPLOYMENT_CHECKLIST.md
+
+🎉 YOU'RE LIVE IN 5 MINUTES!

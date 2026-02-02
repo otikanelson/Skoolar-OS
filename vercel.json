@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "educore-os/frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "educore-os/frontend/dist"
+      }
+    },
+    {
+      "src": "educore-os/backend/src/main.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "educore-os/backend/src/main.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "educore-os/frontend/dist/$1"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "educore-os/backend/src/main.ts"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
