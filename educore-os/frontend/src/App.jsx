@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProtectedRoute from './components/ProtectedRoute';
 
 // Public pages
 import LandingPage from './pages/LandingPage';
@@ -32,69 +31,14 @@ function App() {
         <Route path="/contact-sales" element={<ContactSales />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
 
-        {/* Protected Routes - Admin Only */}
-        <Route 
-          path="/admin" 
-          element={
-            <ProtectedRoute allowedRoles={['admin']}>
-              <AdminDashboard />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/admin/students" 
-          element={
-            <ProtectedRoute allowedRoles={['admin']}>
-              <StudentManagement />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/admin/approvals" 
-          element={
-            <ProtectedRoute allowedRoles={['admin', 'hod']}>
-              <ResultApproval />
-            </ProtectedRoute>
-          } 
-        />
-
-        {/* Protected Routes - Teacher/HOD */}
-        <Route 
-          path="/teacher" 
-          element={
-            <ProtectedRoute allowedRoles={['teacher', 'hod', 'admin']}>
-              <TeacherLedger />
-            </ProtectedRoute>
-          } 
-        />
-
-        {/* Protected Routes - Student */}
-        <Route 
-          path="/exam" 
-          element={
-            <ProtectedRoute allowedRoles={['student']}>
-              <ExamHall />
-            </ProtectedRoute>
-          } 
-        />
-
-        {/* Protected Routes - Parent */}
-        <Route 
-          path="/parent" 
-          element={
-            <ProtectedRoute allowedRoles={['parent']}>
-              <ParentDashboard />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/report-card" 
-          element={
-            <ProtectedRoute allowedRoles={['parent', 'admin']}>
-              <ReportCard />
-            </ProtectedRoute>
-          } 
-        />
+        {/* Dashboard Routes - No Protection for Demo */}
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/students" element={<StudentManagement />} />
+        <Route path="/admin/approvals" element={<ResultApproval />} />
+        <Route path="/teacher" element={<TeacherLedger />} />
+        <Route path="/exam" element={<ExamHall />} />
+        <Route path="/parent" element={<ParentDashboard />} />
+        <Route path="/report-card" element={<ReportCard />} />
 
         {/* Catch all - redirect to home */}
         <Route path="*" element={<LandingPage />} />
