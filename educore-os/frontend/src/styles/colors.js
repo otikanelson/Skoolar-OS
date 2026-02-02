@@ -11,6 +11,7 @@ export const colors = {
   // Neutral Colors
   neutral: {
     white: '#ffffff',
+    offWhite: '#fafaf9', // Soft off-white background
     gray50: '#f9fafb',
     gray100: '#f3f4f6',
     gray200: '#e5e7eb',
@@ -38,6 +39,7 @@ export const tw = {
     primaryDark: 'bg-[#1e293b]',
     primaryLight: 'bg-[#3b82f6]',
     white: 'bg-white',
+    offWhite: 'bg-[#fafaf9]',
     gray50: 'bg-gray-50',
     gray100: 'bg-gray-100',
   },
