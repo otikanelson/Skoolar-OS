@@ -46,15 +46,15 @@ const ReportCard = () => {
           <button className="bg-white border border-gray-300 text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-50">
             Print Report Card
           </button>
-          <button className="bg-primary-700 text-white-900 px-4 py-2 text-sm font-medium hover:bg-primary-800">
+          <button className="bg-[#1e3a8a] text-white px-4 py-2 text-sm font-medium hover:bg-[#1e293b]">
             Download PDF
           </button>
         </div>
 
         {/* Report Card */}
-        <div className="bg-white border-4 border-primary-700">
+        <div className="bg-white border-4 border-[#1e3a8a]">
           {/* Header */}
-          <div className="bg-primary-700 text-white-900 p-8 text-center">
+          <div className="bg-[#1e3a8a] text-white p-8 text-center">
             <h1 className="text-2xl font-bold mb-2">Fieldgreen SECONDARY SCHOOL</h1>
             <p className="text-sm text-gray-300">123 Education Avenue, Lagos, Nigeria</p>
             <p className="text-sm text-gray-300">Tel: +234 800 123 4567 | Email: info@Fieldgreen.edu.ng</p>
@@ -89,16 +89,16 @@ const ReportCard = () => {
           {/* Results Table */}
           <div className="p-6">
             <h3 className="text-sm font-bold text-gray-900 mb-4 uppercase">Academic Performance</h3>
-            <table className="w-full border-collapse border-2 border-primary-700">
+            <table className="w-full border-collapse border-2 border-[#1e3a8a]">
               <thead>
-                <tr className="bg-primary-700 text-white-900">
-                  <th className="border border-primary-700 px-3 py-2 text-left text-xs font-bold">Subject</th>
-                  <th className="border border-primary-700 px-3 py-2 text-center text-xs font-bold">CA (40)</th>
-                  <th className="border border-primary-700 px-3 py-2 text-center text-xs font-bold">Exam (60)</th>
-                  <th className="border border-primary-700 px-3 py-2 text-center text-xs font-bold">Total (100)</th>
-                  <th className="border border-primary-700 px-3 py-2 text-center text-xs font-bold">Grade</th>
-                  <th className="border border-primary-700 px-3 py-2 text-center text-xs font-bold">Position</th>
-                  <th className="border border-primary-700 px-3 py-2 text-center text-xs font-bold">Remark</th>
+                <tr className="bg-[#1e3a8a] text-white">
+                  <th className="border border-[#1e3a8a] px-3 py-2 text-left text-xs font-bold">Subject</th>
+                  <th className="border border-[#1e3a8a] px-3 py-2 text-center text-xs font-bold">CA (40)</th>
+                  <th className="border border-[#1e3a8a] px-3 py-2 text-center text-xs font-bold">Exam (60)</th>
+                  <th className="border border-[#1e3a8a] px-3 py-2 text-center text-xs font-bold">Total (100)</th>
+                  <th className="border border-[#1e3a8a] px-3 py-2 text-center text-xs font-bold">Grade</th>
+                  <th className="border border-[#1e3a8a] px-3 py-2 text-center text-xs font-bold">Position</th>
+                  <th className="border border-[#1e3a8a] px-3 py-2 text-center text-xs font-bold">Remark</th>
                 </tr>
               </thead>
               <tbody>

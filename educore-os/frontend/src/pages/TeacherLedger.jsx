@@ -28,7 +28,7 @@ const TeacherLedger = () => {
               <button className="border border-gray-300 text-gray-700 px-4 py-2 text-sm font-medium hover:bg-gray-50">
                 Save Draft
               </button>
-              <button className="bg-primary-700 text-white-900 px-4 py-2 text-sm font-medium hover:bg-primary-800">
+              <button className="bg-[#1e3a8a] text-white px-4 py-2 text-sm font-medium hover:bg-[#1e293b]">
                 Submit for Approval
               </button>
             </div>
@@ -117,7 +117,7 @@ const TeacherLedger = () => {
           <button className="border border-gray-300 text-gray-700 px-6 py-2 text-sm font-medium hover:bg-gray-50">
             Save Draft
           </button>
-          <button className="bg-primary-700 text-white-900 px-6 py-2 text-sm font-medium hover:bg-primary-800">
+          <button className="bg-[#1e3a8a] text-white px-6 py-2 text-sm font-medium hover:bg-[#1e293b]">
             Submit for Approval
           </button>
         </div>

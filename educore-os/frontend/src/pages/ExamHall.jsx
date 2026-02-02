@@ -18,7 +18,7 @@ const ExamHall = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
-      <nav className="bg-white border-b-2 border-primary-700">
+      <nav className="bg-white border-b-2 border-[#1e3a8a]">
         <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
           <div>
             <h2 className="text-lg font-bold text-gray-900">Chemistry Mock Examination</h2>
@@ -29,7 +29,7 @@ const ExamHall = () => {
               <div className="text-xs text-gray-600">Violations</div>
               <div className="text-lg font-bold text-red-600">{cheats}</div>
             </div>
-            <div className="bg-primary-700 text-white-900 px-4 py-2 font-mono text-xl font-bold">
+            <div className="bg-[#1e3a8a] text-white px-4 py-2 font-mono text-xl font-bold">
               {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}
             </div>
           </div>
@@ -71,7 +71,7 @@ const ExamHall = () => {
             <div className="text-xs text-gray-600">
               <button className="underline hover:text-gray-900">Flag for Review</button>
             </div>
-            <button className="bg-primary-700 text-white-900 px-6 py-2 text-sm font-medium hover:bg-primary-800">
+            <button className="bg-[#1e3a8a] text-white px-6 py-2 text-sm font-medium hover:bg-[#1e293b]">
               Next Question
             </button>
           </div>
@@ -86,8 +86,8 @@ const ExamHall = () => {
                 key={i} 
                 className={`w-10 h-10 border text-sm font-medium ${
                   i === 0 
-                    ? 'border-primary-700 bg-primary-700 text-white-900' 
-                    : 'border-gray-300 text-gray-700 hover:border-primary-700'
+                    ? 'border-[#1e3a8a] bg-[#1e3a8a] text-white' 
+                    : 'border-gray-300 text-gray-700 hover:border-[#1e3a8a]'
                 }`}
               >
                 {i + 1}
@@ -98,7 +98,7 @@ const ExamHall = () => {
 
         {/* Submit Button */}
         <div className="mt-6 text-center">
-          <button className="bg-red-600 text-gray-900 px-8 py-3 text-sm font-bold hover:bg-red-700">
+          <button className="bg-red-600 text-white px-8 py-3 text-sm font-bold hover:bg-red-700">
             SUBMIT EXAMINATION
           </button>
         </div>

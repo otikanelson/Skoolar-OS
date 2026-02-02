@@ -46,7 +46,7 @@ const ParentDashboard = () => {
                 <span className="text-gray-600">Grade: <span className="font-semibold text-gray-900">B</span></span>
               </div>
             </div>
-            <button className="bg-primary-700 text-white-900 px-4 py-2 text-sm font-medium hover:bg-primary-800">
+            <button className="bg-[#1e3a8a] text-white px-4 py-2 text-sm font-medium hover:bg-[#1e293b]">
               Download Report Card
             </button>
           </div>

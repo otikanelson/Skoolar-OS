@@ -230,7 +230,7 @@ const ResultApproval = () => {
                   <button className="flex-1 bg-white border-2 border-gray-400 text-gray-900 py-3 font-semibold hover:bg-gray-100">
                     Reject & Return
                   </button>
-                  <button className="flex-1 bg-primary-700 text-white-900 py-3 font-semibold hover:bg-primary-800">
+                  <button className="flex-1 bg-[#1e3a8a] text-white py-3 font-semibold hover:bg-[#1e293b]">
                     Approve & Forward
                   </button>
                 </div>

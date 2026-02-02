@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import LogoutButton from '../components/LogoutButton';
 
 const AdminDashboard = () => {
   const stats = [
@@ -52,6 +54,7 @@ const AdminDashboard = () => {
                   <div className="text-xs text-gray-600">Administrator</div>
                 </div>
               </div>
+              <LogoutButton />
             </div>
           </div>
         </div>
@@ -145,15 +148,15 @@ const AdminDashboard = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
-          <button className="bg-white border-2 border-[#1e3a8a] text-gray-900 p-4 hover:bg-gray-50 transition-colors">
-            <div className="text-sm font-semibold">Add Student</div>
-          </button>
-          <button className="bg-white border-2 border-[#1e3a8a] text-gray-900 p-4 hover:bg-gray-50 transition-colors">
+          <Link to="/admin/students" className="bg-white border-2 border-[#1e3a8a] text-gray-900 p-4 hover:bg-gray-50 transition-colors text-center">
+            <div className="text-sm font-semibold">Manage Students</div>
+          </Link>
+          <Link to="/admin/approvals" className="bg-white border-2 border-[#1e3a8a] text-gray-900 p-4 hover:bg-gray-50 transition-colors text-center">
             <div className="text-sm font-semibold">Approve Results</div>
-          </button>
-          <button className="bg-white border-2 border-[#1e3a8a] text-gray-900 p-4 hover:bg-gray-50 transition-colors">
+          </Link>
+          <Link to="/report-card" className="bg-white border-2 border-[#1e3a8a] text-gray-900 p-4 hover:bg-gray-50 transition-colors text-center">
             <div className="text-sm font-semibold">View Reports</div>
-          </button>
+          </Link>
           <button className="bg-white border-2 border-[#1e3a8a] text-gray-900 p-4 hover:bg-gray-50 transition-colors">
             <div className="text-sm font-semibold">System Settings</div>
           </button>
