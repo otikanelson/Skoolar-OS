@@ -117,12 +117,18 @@ export const isTokenExpired = () => {
   const token = getAuthToken();
   if (!token) return true;
   
+  // Demo mode tokens don't expire
+  if (DEMO_MODE && token.startsWith('demo-token-')) {
+    return false;
+  }
+  
   try {
     // Decode JWT token (basic decode, not verification)
     const payload = JSON.parse(atob(token.split('.')[1]));
     const expirationTime = payload.exp * 1000; // Convert to milliseconds
     return Date.now() >= expirationTime;
   } catch (error) {
+    // If token can't be decoded, consider it expired
     return true;
   }
 };
@@ -131,6 +137,11 @@ export const isTokenExpired = () => {
 export const verifyToken = async () => {
   const token = getAuthToken();
   if (!token) return false;
+  
+  // Demo mode tokens are always valid
+  if (DEMO_MODE && token.startsWith('demo-token-')) {
+    return true;
+  }
   
   try {
     const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/auth/verify`, {
