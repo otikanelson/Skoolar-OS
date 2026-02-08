@@ -52,11 +52,96 @@ const apiRequest = async (endpoint, options = {}) => {
 
 // Authentication API
 export const authAPI = {
+  // Check portal/school exists
+  checkPortal: async (identifier) => {
+    return apiRequest('/auth/check-portal', {
+      method: 'POST',
+      body: JSON.stringify({ identifier }),
+    });
+  },
+  
+  // Register school
+  registerSchool: async (schoolData) => {
+    return apiRequest('/auth/register-school', {
+      method: 'POST',
+      body: JSON.stringify(schoolData),
+    });
+  },
+  
+  // Get pending registrations (manufacturer only)
+  getPendingRegistrations: async () => {
+    return apiRequest('/auth/registrations/pending', {
+      method: 'GET',
+    });
+  },
+  
+  // Approve school registration (manufacturer only)
+  approveRegistration: async (schoolId) => {
+    return apiRequest(`/auth/registrations/${schoolId}/approve`, {
+      method: 'POST',
+    });
+  },
+  
+  // Reject school registration (manufacturer only)
+  rejectRegistration: async (schoolId, reason) => {
+    return apiRequest(`/auth/registrations/${schoolId}/reject`, {
+      method: 'POST',
+      body: JSON.stringify({ reason }),
+    });
+  },
+  
   // Login with email and password
-  login: async (email, password) => {
+  login: async (email, password, rememberMe = false, portalId = null) => {
     return apiRequest('/auth/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, rememberMe, portalId }),
+    });
+  },
+  
+  // Refresh access token
+  refreshToken: async (refreshToken) => {
+    return apiRequest('/auth/refresh', {
+      method: 'POST',
+      body: JSON.stringify({ refreshToken }),
+    });
+  },
+  
+  // Logout
+  logout: async (refreshToken) => {
+    return apiRequest('/auth/logout', {
+      method: 'POST',
+      body: JSON.stringify({ refreshToken }),
+    });
+  },
+  
+  // Forgot password
+  forgotPassword: async (email) => {
+    return apiRequest('/auth/forgot-password', {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+    });
+  },
+  
+  // Reset password
+  resetPassword: async (token, newPassword) => {
+    return apiRequest('/auth/reset-password', {
+      method: 'POST',
+      body: JSON.stringify({ token, newPassword }),
+    });
+  },
+  
+  // Change password
+  changePassword: async (currentPassword, newPassword) => {
+    return apiRequest('/auth/change-password', {
+      method: 'POST',
+      body: JSON.stringify({ currentPassword, newPassword }),
+    });
+  },
+  
+  // Check if password change required
+  checkRequirePasswordChange: async () => {
+    return apiRequest('/auth/require-password-change', {
+      method: 'GET',
     });
   },
   
@@ -72,13 +157,6 @@ export const authAPI = {
     return apiRequest('/auth/profile', {
       method: 'GET',
     });
-  },
-  
-  // Logout (optional backend call)
-  logout: async () => {
-    // Could call backend to invalidate token
-    // For now, just clear local storage
-    logout();
   },
 };
 

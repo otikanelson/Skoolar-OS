@@ -155,7 +155,10 @@ const PortalConnect = () => {
         </motion.div>
         <div className="text-center mt-4">
           <p className="text-xs text-gray-500">
-            Need access? <Link to="/request-access" className="text-[#1e3a8a] hover:underline">Request School Portal</Link>
+            Don't have a school portal yet?{' '}
+            <Link to="/register" className="text-[#1e3a8a] hover:underline font-medium">
+              Register Your School
+            </Link>
           </p>
         </div>
       </motion.div>

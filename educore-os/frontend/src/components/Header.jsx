@@ -25,7 +25,8 @@ const Header = () => {
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/pricing" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Pricing</Link>
-            <Link to="/login" className="text-gray-600 hover:text-gray-900 text-sm font-medium">School Login</Link>
+            <Link to="/register" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Register School</Link>
+            <Link to="/login" className="text-gray-600 hover:text-gray-900 text-sm font-medium">Login</Link>
             <Link to="/contact-sales" className="bg-[#1e3a8a] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[#1e293b] transition-colors">
               Contact Sales
             </Link>

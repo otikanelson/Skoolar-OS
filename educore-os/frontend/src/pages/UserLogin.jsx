@@ -7,8 +7,9 @@ const UserLogin = () => {
   const navigate = useNavigate();
   const portalId = searchParams.get('portal') || 'fieldgreen';
   
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [credentials, setCredentials] = useState({ email: '', password: '', rememberMe: false });
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   // Redirect if no portal specified
   useEffect(() => {
@@ -20,29 +21,36 @@ const UserLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('');
     
     try {
-      // Import auth utilities
       const { authAPI } = await import('../services/api');
-      const { login, DEMO_MODE, demoLogin } = await import('../utils/auth');
+      const { login } = await import('../utils/auth');
       
-      let response;
-      
-      // Use demo mode if enabled
-      if (DEMO_MODE) {
-        console.log('🎭 DEMO MODE: Using simulated login');
-        response = await demoLogin(credentials.email, credentials.password);
-      } else {
-        // Call real login API
-        response = await authAPI.login(credentials.email, credentials.password);
-      }
+      // Call login API with portalId
+      const response = await authAPI.login(
+        credentials.email,
+        credentials.password,
+        credentials.rememberMe,
+        portalId
+      );
       
       // Store token and user data
-      login(response.access_token, response.user);
+      login(response.accessToken, response.user);
+      
+      // Check if password change is required
+      if (response.user.requirePasswordChange) {
+        navigate('/change-password', { state: { firstLogin: true } });
+        return;
+      }
       
       // Navigate based on role
-      const role = response.user.role;
+      const role = response.user.role.toLowerCase();
       switch (role) {
+        case 'manufacturer':
+          navigate('/manufacturer/dashboard');
+          break;
+        case 'school_admin':
         case 'admin':
           navigate('/admin');
           break;
@@ -61,7 +69,7 @@ const UserLogin = () => {
       }
     } catch (error) {
       console.error('Login failed:', error);
-      alert(error.message || 'Login failed. Please check your credentials.');
+      setError(error.message || 'Login failed. Please check your credentials.');
       setIsLoading(false);
     }
   };
@@ -100,6 +108,13 @@ const UserLogin = () => {
           className="bg-white border border-gray-300 shadow-sm p-8"
         >
           <form onSubmit={handleLogin}>
+            {/* Error Message */}
+            {error && (
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+                {error}
+              </div>
+            )}
+
             {/* Email Input */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -135,8 +150,13 @@ const UserLogin = () => {
             {/* Remember & Forgot */}
             <div className="flex items-center justify-between mb-6">
               <label className="flex items-center">
-                <input type="checkbox" className="border-gray-300 text-[#1e3a8a] focus:ring-[#1e3a8a]" />
-                <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                <input 
+                  type="checkbox" 
+                  checked={credentials.rememberMe}
+                  onChange={(e) => setCredentials({ ...credentials, rememberMe: e.target.checked })}
+                  className="border-gray-300 text-[#1e3a8a] focus:ring-[#1e3a8a]" 
+                />
+                <span className="ml-2 text-sm text-gray-600">Remember me (30 days)</span>
               </label>
               <a href="#" className="text-sm text-[#1e3a8a] hover:underline">
                 Forgot password?
@@ -162,14 +182,12 @@ const UserLogin = () => {
               )}
             </button>
 
-            {/* Demo Note */}
-            <div className="mt-6 p-3 bg-gray-50 border border-gray-200">
-              <p className="text-xs text-gray-600 mb-2 font-medium">🎭 DEMO MODE - Any password works!</p>
-              <div className="text-xs text-gray-500 space-y-1">
-                <div>admin@fieldgreen.edu</div>
-                <div>teacher@fieldgreen.edu</div>
-                <div>parent@fieldgreen.edu</div>
-              </div>
+            {/* Security Info */}
+            <div className="mt-6 p-3 bg-blue-50 border border-blue-200">
+              <p className="text-xs text-gray-700 mb-1 font-medium">🔒 Secure Login</p>
+              <p className="text-xs text-gray-600">
+                Your login is protected by rate limiting, account lockout, and comprehensive audit logging.
+              </p>
             </div>
           </form>
         </motion.div>

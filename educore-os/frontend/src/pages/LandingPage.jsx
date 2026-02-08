@@ -20,7 +20,6 @@ const LandingPage = () => {
     <div className="min-h-screen bg-[#fafaf9]">
       <Header />
 
-      {/* Hero Section with Background Image */}
       <div 
         className="relative bg-white border-b border-gray-200 overflow-hidden"
         style={{
@@ -50,8 +49,7 @@ const LandingPage = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="inline-block bg-white px-4 py-2 rounded border border-gray-300"
             >
-              <span className="text-sm text-gray-600">Your School Portal: </span>
-              <span className="text-sm font-mono text-[#1e3a8a] font-semibold">schoolname.educore.ng</span>
+              <span className="text-sm font-mono text-[#1e3a8a] font-semibold">Get a custom Portal Domain</span>
             </motion.div>
           </motion.div>
         </div>
@@ -252,9 +250,14 @@ const LandingPage = () => {
           <p className="text-gray-300 mb-8">
             Simple. Memorable. Executive-friendly.
           </p>
-          <Link to="/login/direct" className="inline-block bg-white text-[#1e3a8a] px-6 py-3 text-sm font-semibold hover:bg-gray-100 transition-colors">
-            Request School Access
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/register" className="inline-block bg-white text-[#1e3a8a] px-6 py-3 text-sm font-semibold hover:bg-gray-100 transition-colors">
+              Register Your School
+            </Link>
+            <Link to="/login" className="inline-block bg-transparent border-2 border-white text-white px-6 py-3 text-sm font-semibold hover:bg-white hover:text-[#1e3a8a] transition-colors">
+              Login to Portal
+            </Link>
+          </div>
         </div>
       </motion.div>
 
@@ -262,5 +265,6 @@ const LandingPage = () => {
     </div>
   );
 };
+
 
 export default LandingPage;

@@ -3,43 +3,44 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const DirectLogin = () => {
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [credentials, setCredentials] = useState({ email: '', password: '', rememberMe: false });
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    
+    setError('');
+
     try {
-      // Import auth utilities
       const { authAPI } = await import('../services/api');
-      const { login, DEMO_MODE, demoLogin } = await import('../utils/auth');
+      const { login } = await import('../utils/auth');
       
-      console.log('🔍 Login attempt - DEMO_MODE:', DEMO_MODE);
-      console.log('📧 Email:', credentials.email);
-      
-      let response;
-      
-      // Use demo mode if enabled
-      if (DEMO_MODE) {
-        console.log('🎭 DEMO MODE ACTIVE: Using simulated login');
-        response = await demoLogin(credentials.email, credentials.password);
-        console.log('✅ Demo login successful:', response);
-      } else {
-        console.log('🌐 Using real backend API');
-        // Call real login API
-        response = await authAPI.login(credentials.email, credentials.password);
-      }
+      // Call login API without portalId (direct login)
+      const response = await authAPI.login(
+        credentials.email,
+        credentials.password,
+        credentials.rememberMe,
+        null // No portalId for direct login
+      );
       
       // Store token and user data
-      login(response.access_token, response.user);
+      login(response.accessToken, response.user);
       
-      console.log('✅ Login successful, navigating to dashboard...');
+      // Check if password change is required
+      if (response.user.requirePasswordChange) {
+        navigate('/change-password', { state: { firstLogin: true } });
+        return;
+      }
       
       // Navigate based on role
-      const role = response.user.role;
+      const role = response.user.role.toLowerCase();
       switch (role) {
+        case 'manufacturer':
+          navigate('/manufacturer/dashboard');
+          break;
+        case 'school_admin':
         case 'admin':
           navigate('/admin');
           break;
@@ -57,8 +58,8 @@ const DirectLogin = () => {
           navigate('/');
       }
     } catch (error) {
-      console.error('❌ Login failed:', error);
-      alert(error.message || 'Login failed. Please check your credentials.');
+      console.error('Login failed:', error);
+      setError(error.message || 'Login failed. Please check your credentials.');
       setIsLoading(false);
     }
   };
@@ -99,6 +100,13 @@ const DirectLogin = () => {
           </div>
 
           <form onSubmit={handleLogin}>
+            {/* Error Message */}
+            {error && (
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+                {error}
+              </div>
+            )}
+
             {/* Email Input */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -137,8 +145,13 @@ const DirectLogin = () => {
             {/* Remember & Forgot */}
             <div className="flex items-center justify-between mb-6">
               <label className="flex items-center">
-                <input type="checkbox" className="border-gray-300 text-[#1e3a8a] focus:ring-[#1e3a8a]" />
-                <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                <input 
+                  type="checkbox" 
+                  checked={credentials.rememberMe}
+                  onChange={(e) => setCredentials({ ...credentials, rememberMe: e.target.checked })}
+                  className="border-gray-300 text-[#1e3a8a] focus:ring-[#1e3a8a]" 
+                />
+                <span className="ml-2 text-sm text-gray-600">Remember me (30 days)</span>
               </label>
               <a href="#" className="text-sm text-[#1e3a8a] hover:underline">
                 Forgot password?
@@ -171,20 +184,11 @@ const DirectLogin = () => {
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                 </svg>
                 <div>
-                  <p className="text-xs font-medium text-gray-700 mb-1">Auto-Portal Detection</p>
+                  <p className="text-xs font-medium text-gray-700 mb-1">🔒 Secure Login</p>
                   <p className="text-xs text-gray-600">
-                    Your school portal will be automatically identified from your email domain. No need to enter a portal ID.
+                    Protected by rate limiting, account lockout after 5 failed attempts, and comprehensive security monitoring.
                   </p>
                 </div>
-              </div>
-            </div>
-
-            {/* Demo Note */}
-            <div className="mt-4 p-3 bg-gray-50 border border-gray-200">
-              <p className="text-xs text-gray-600 mb-2 font-medium">🎭 DEMO MODE - Any password works!</p>
-              <div className="text-xs text-gray-500 space-y-1">
-                <div>admin@fieldgreen.edu</div>
-                <div>teacher@fieldgreen.edu</div>
               </div>
             </div>
           </form>
