@@ -1,4 +1,4 @@
-# EduCore Secure Authentication System - Implementation Tasks
+# Skoolar Secure Authentication System - Implementation Tasks
 
 ## Phase 1: Database & Core Security Infrastructure
 

@@ -71,11 +71,11 @@ docs(readme): update installation instructions
 3. **Ensure all tests pass**:
    ```bash
    # Backend
-   cd educore-os/backend
+   cd skoolar-platform/backend
    npm test
    
    # Frontend
-   cd educore-os/frontend
+   cd skoolar-platform/frontend
    npm test
    ```
 4. **Update the README.md** if you're adding new features
@@ -134,7 +134,7 @@ When suggesting features:
 
 ### Backend Tests
 ```bash
-cd educore-os/backend
+cd skoolar-platform/backend
 npm test                 # Run all tests
 npm test -- --watch     # Watch mode
 npm test -- --coverage  # Coverage report
@@ -142,7 +142,7 @@ npm test -- --coverage  # Coverage report
 
 ### Frontend Tests
 ```bash
-cd educore-os/frontend
+cd skoolar-platform/frontend
 npm test                # Run all tests
 npm test -- --watch    # Watch mode
 ```

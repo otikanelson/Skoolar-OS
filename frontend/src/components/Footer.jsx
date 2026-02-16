@@ -53,7 +53,7 @@ const Footer = () => {
         <div className="border-t border-gray-200 mt-8 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
             <p className="text-sm text-gray-500">
-              &copy; 2025 EduCore OS. All rights reserved. Academic Management Platform.
+              &copy; 2025 Skoolar. All rights reserved. Academic Management Platform.
             </p>
             <Link 
               to="/manufacturer/login" 

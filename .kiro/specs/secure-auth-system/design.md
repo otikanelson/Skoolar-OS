@@ -1,4 +1,4 @@
-# EduCore Secure Authentication System - Design Document
+# Skoolar Secure Authentication System - Design Document
 
 ## 1. System Architecture Overview
 
@@ -1275,7 +1275,7 @@ async function bootstrap() {
         scriptSrc: ["'self'"],
         styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", 'data:', 'https:'],
-        connectSrc: ["'self'", 'https://api.educore.ng'],
+        connectSrc: ["'self'", 'https://api.skoolar.com'],
         fontSrc: ["'self'"],
         objectSrc: ["'none'"],
         mediaSrc: ["'self'"],
@@ -1352,10 +1352,10 @@ SMTP_HOST=<smtp-host>
 SMTP_PORT=587
 SMTP_USER=<smtp-user>
 SMTP_PASSWORD=<smtp-password>
-FROM_EMAIL=noreply@educore.ng
+FROM_EMAIL=noreply@skoolar.com
 
 # Security
-ALLOWED_ORIGINS=https://educore.ng,https://app.educore.ng
+ALLOWED_ORIGINS=https://skoolar.com,https://app.skoolar.com
 RATE_LIMIT_TTL=60
 RATE_LIMIT_MAX=10
 
