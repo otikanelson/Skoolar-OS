@@ -18,6 +18,7 @@ export default async (req, res) => {
       'http://localhost:5173',
       'https://edu-core-eight.vercel.app',
       'https://edu-core.vercel.app',
+      'https://edu-core-os-27na.vercel.app',
     ];
     
     app.enableCors({
