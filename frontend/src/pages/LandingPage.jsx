@@ -192,6 +192,77 @@ const LandingPage = () => {
         </div>
       </div>
 
+      {/* Features Showcase with Overlapping Images */}
+      <div className="bg-white border-y border-gray-200 py-12 sm:py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              transition={{ duration: 0.6 }}
+              className="order-2 lg:order-1"
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+                Stay connected easily and securely through Skoolar.
+              </h2>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
+                Our app provides fast and reliable communication through an integrated platform that features real-time chat for easy conversations between parents, teachers, and students.
+              </p>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
+                Additionally, it includes a payment system for handling school-related transactions and an assignment management tool, allowing students to track and submit their work while parents monitor their progress—all within a secure environment.
+              </p>
+              <Link 
+                to="/features"
+                className="inline-block bg-[#1e3a8a] text-white px-6 py-3 text-sm sm:text-base font-semibold hover:bg-blue-900 transition-colors"
+              >
+                Explore Features
+              </Link>
+            </motion.div>
+
+            {/* Right - Overlapping Images */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="order-1 lg:order-2 relative h-[400px] sm:h-[500px] lg:h-[600px]"
+            >
+              {/* Main large image - bottom left */}
+              <div className="absolute left-0 bottom-0 w-[55%] h-[65%] bg-gray-200 border-4 border-white shadow-2xl z-10 overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
+                  Payment Dashboard
+                </div>
+              </div>
+
+              {/* Top right image - notifications/messages */}
+              <div className="absolute right-0 top-0 w-[48%] h-[45%] bg-gray-100 border-4 border-white shadow-xl z-20 overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
+                  Notifications
+                </div>
+              </div>
+
+              {/* Middle right image - messaging interface */}
+              <div className="absolute right-[5%] top-[35%] w-[52%] h-[50%] bg-white border-4 border-white shadow-2xl z-30 overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
+                  Messaging
+                </div>
+              </div>
+
+              {/* Small floating element - chat bubble */}
+              <div className="absolute right-[8%] bottom-[15%] w-[35%] h-[28%] bg-gray-50 border-4 border-white shadow-lg z-40 overflow-hidden rounded-lg">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
+                  Chat Preview
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
       {/* How Schools Get Started */}
       <div id="onboarding-section" className="bg-white border-y border-gray-200 py-12 sm:py-16 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
