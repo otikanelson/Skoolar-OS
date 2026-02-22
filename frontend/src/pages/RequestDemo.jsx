@@ -46,7 +46,7 @@ const RequestDemo = () => {
               Demo Request Received
             </h1>
             <p className="text-gray-600 mb-8">
-              Thank you for your interest in EduCore. Our team will contact you within 24 hours to schedule your personalized demo.
+              Thank you for your interest in Skoolar. Our team will contact you within 24 hours to schedule your personalized demo.
             </p>
             <Link 
               to="/" 
@@ -72,7 +72,7 @@ const RequestDemo = () => {
             Request a Demo
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            See EduCore in action. Schedule a personalized demo with our team.
+            See Skoolar in action. Schedule a personalized demo with our team.
           </p>
         </div>
       </div>

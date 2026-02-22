@@ -25,7 +25,7 @@ const Header = () => {
               </svg>
             </div>
             <div>
-              <div className="text-lg md:text-xl font-bold text-gray-900">EduCore</div>
+              <div className="text-lg md:text-xl font-bold text-gray-900">Skoolar</div>
               <div className="text-xs text-gray-500 -mt-0.5 hidden sm:block">Academic Management Platform</div>
             </div>
           </Link>

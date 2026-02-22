@@ -20,7 +20,7 @@ const LandingPage = () => {
 
   const testimonials = [
     {
-      quote: "EduCore has transformed how we manage our academic operations. What used to take days now takes minutes. The system is intuitive, reliable, and has significantly reduced our administrative burden.",
+      quote: "Skoolar has transformed how we manage our academic operations. What used to take days now takes minutes. The system is intuitive, reliable, and has significantly reduced our administrative burden.",
       name: "Mrs. Oluwaseun Adeyemi",
       role: "Principal, Grace International School",
       image: PFP1
@@ -38,7 +38,7 @@ const LandingPage = () => {
       image: PFP3
     },
     {
-      quote: "Managing multiple classes and hundreds of students used to be overwhelming. EduCore brought structure and clarity to our operations. I can now focus on improving education quality rather than drowning in paperwork.",
+      quote: "Managing multiple classes and hundreds of students used to be overwhelming. Skoolar brought structure and clarity to our operations. I can now focus on improving education quality rather than drowning in paperwork.",
       name: "Mr. Tunde Ajayi",
       role: "School Administrator, Bright Future Schools",
       image: null
@@ -111,7 +111,7 @@ const LandingPage = () => {
               Academic Management Made Simple
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-100 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-2">
-              EduCore is a centralized platform that helps schools manage academic records, 
+              Skoolar is a centralized platform that helps schools manage academic records, 
               assessments, and internal examinations within one secure environment.
             </p>
             <motion.div 
@@ -192,6 +192,77 @@ const LandingPage = () => {
         </div>
       </div>
 
+      {/* Features Showcase with Overlapping Images */}
+      <div className="bg-white border-y border-gray-200 py-12 sm:py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              transition={{ duration: 0.6 }}
+              className="order-2 lg:order-1"
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+                Everything your school needs in one platform.
+              </h2>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
+                Skoolar streamlines academic operations with comprehensive tools for result management, student records, and examination workflows. Teachers record assessments efficiently, administrators oversee approval processes, and parents access report cards instantly.
+              </p>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
+                From continuous assessment tracking to computer-based internal examinations, every feature is designed to reduce administrative burden while maintaining accuracy and security across your entire academic ecosystem.
+              </p>
+              <Link 
+                to="/features"
+                className="inline-block bg-[#1e3a8a] text-white px-6 py-3 text-sm sm:text-base font-semibold hover:bg-blue-900 transition-colors"
+              >
+                Explore Features
+              </Link>
+            </motion.div>
+
+            {/* Right - Overlapping Images */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="order-1 lg:order-2 relative h-[400px] sm:h-[500px] lg:h-[600px]"
+            >
+              {/* Main large image - bottom left */}
+              <div className="absolute left-0 bottom-0 w-[55%] h-[65%] bg-gray-200 border-4 border-white shadow-2xl z-10 overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
+                  Payment Dashboard
+                </div>
+              </div>
+
+              {/* Top right image - notifications/messages */}
+              <div className="absolute right-0 top-0 w-[48%] h-[45%] bg-gray-100 border-4 border-white shadow-xl z-20 overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
+                  Notifications
+                </div>
+              </div>
+
+              {/* Middle right image - messaging interface */}
+              <div className="absolute right-[5%] top-[35%] w-[52%] h-[50%] bg-white border-4 border-white shadow-2xl z-30 overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
+                  Messaging
+                </div>
+              </div>
+
+              {/* Small floating element - chat bubble */}
+              <div className="absolute right-[8%] bottom-[15%] w-[35%] h-[28%] bg-gray-50 border-4 border-white shadow-lg z-40 overflow-hidden rounded-lg">
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
+                  Chat Preview
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
       {/* How Schools Get Started */}
       <div id="onboarding-section" className="bg-white border-y border-gray-200 py-12 sm:py-16 md:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -213,7 +284,7 @@ const LandingPage = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-center text-sm sm:text-base md:text-lg text-gray-600 mb-10 sm:mb-12 md:mb-16 max-w-2xl mx-auto px-2"
           >
-            EduCore is designed for easy adoption without disrupting existing school operations.
+            Skoolar is designed for easy adoption without disrupting existing school operations.
           </motion.p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
@@ -274,7 +345,7 @@ const LandingPage = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-center text-sm sm:text-base md:text-lg text-gray-600 mb-10 sm:mb-12 md:mb-14 max-w-2xl mx-auto px-2"
         >
-          EduCore supports the tasks schools already perform — now with greater speed, accuracy, and visibility.
+          Skoolar supports the tasks schools already perform — now with greater speed, accuracy, and visibility.
         </motion.p>
 
         <div className="space-y-4 sm:space-y-5 md:space-y-6">

@@ -52,7 +52,7 @@ const ContactSales = () => {
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h2>
               <p className="text-gray-600 mb-6">
-                We've received your request. Our sales team will contact you within 24 hours to discuss how EduCore can help your school.
+                We've received your request. Our sales team will contact you within 24 hours to discuss how Skoolar can help your school.
               </p>
               <a href="/" className="inline-block bg-[#1e3a8a] text-white px-6 py-3 text-sm font-semibold hover:bg-[#1e293b] transition-colors">
                 Back to Home
@@ -203,9 +203,9 @@ const ContactSales = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="space-y-6"
             >
-              {/* Why Choose EduCore */}
+              {/* Why Choose Skoolar */}
               <div className="bg-white border border-gray-200 p-6">
-                <h3 className="font-semibold text-gray-900 mb-4">Why Choose EduCore?</h3>
+                <h3 className="font-semibold text-gray-900 mb-4">Why Choose Skoolar?</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
                     <svg className="w-5 h-5 text-[#1e3a8a] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -250,7 +250,7 @@ const ContactSales = () => {
                     </svg>
                     <div>
                       <div className="text-sm font-medium text-gray-900">Email</div>
-                      <a href="mailto:sales@educore.ng" className="text-sm text-[#1e3a8a] hover:underline">sales@educore.ng</a>
+                      <a href="mailto:sales@skoolar.com" className="text-sm text-[#1e3a8a] hover:underline">sales@skoolar.com</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">

@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
           <p className="text-sm font-semibold text-gray-900 mb-8">Effective Date: February 8, 2026</p>
           
           <p className="text-gray-700 leading-relaxed mb-4">
-            Welcome to EduCore OS. Your privacy is extremely important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website, <a href="https://educore.ng" className="text-[#1e3a8a] hover:underline">https://educore.ng</a> (the "Site"). Our goal is to ensure full transparency and compliance with applicable data protection laws, including the Nigeria Data Protection Regulation (NDPR), and other relevant privacy regulations.
+            Welcome to Skoolar. Your privacy is extremely important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website, <a href="https://skoolar.com" className="text-[#1e3a8a] hover:underline">https://skoolar.com</a> (the "Site"). Our goal is to ensure full transparency and compliance with applicable data protection laws, including the Nigeria Data Protection Regulation (NDPR), and other relevant privacy regulations.
           </p>
           
           <p className="text-gray-700 leading-relaxed">
@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
             <h2 className="text-xl font-bold text-gray-900 mb-4">1. Information We Collect</h2>
             
             <p className="leading-relaxed mb-4">
-              When you visit EduCore OS, we may collect both <strong>personally identifiable</strong> and <strong>non-personally identifiable</strong> information. Personally identifiable information includes details like your name and email address, which we collect only when you voluntarily provide them—such as when you subscribe to our newsletter, fill out a contact form, or download resources.
+              When you visit Skoolar, we may collect both <strong>personally identifiable</strong> and <strong>non-personally identifiable</strong> information. Personally identifiable information includes details like your name and email address, which we collect only when you voluntarily provide them—such as when you subscribe to our newsletter, fill out a contact form, or download resources.
             </p>
             
             <p className="leading-relaxed">
@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
             <h2 className="text-xl font-bold text-gray-900 mb-4">3. Cookies and Tracking Technologies</h2>
             
             <p className="leading-relaxed mb-4">
-              EduCore OS uses cookies and similar tracking technologies to enhance your browsing experience. Cookies are small text files stored on your device that help us remember your preferences, analyze site traffic, and personalize content.
+              Skoolar uses cookies and similar tracking technologies to enhance your browsing experience. Cookies are small text files stored on your device that help us remember your preferences, analyze site traffic, and personalize content.
             </p>
             
             <p className="leading-relaxed mb-4">We use the following types of cookies:</p>
@@ -122,7 +122,7 @@ const PrivacyPolicy = () => {
             </ul>
             
             <p className="leading-relaxed mt-4">
-              To exercise any of these rights, please contact us at <a href="mailto:privacy@educore.ng" className="text-[#1e3a8a] hover:underline">privacy@educore.ng</a>.
+              To exercise any of these rights, please contact us at <a href="mailto:privacy@skoolar.com" className="text-[#1e3a8a] hover:underline">privacy@skoolar.com</a>.
             </p>
           </section>
 
@@ -130,7 +130,7 @@ const PrivacyPolicy = () => {
             <h2 className="text-xl font-bold text-gray-900 mb-4">7. Children's Privacy</h2>
             
             <p className="leading-relaxed">
-              EduCore OS is designed for use by educational institutions to manage academic records. We collect and process student information only with the consent and authorization of schools and parents/guardians. We do not knowingly collect personal information from children under 13 without proper parental consent. If you believe we have inadvertently collected such information, please contact us immediately so we can take appropriate action.
+              Skoolar is designed for use by educational institutions to manage academic records. We collect and process student information only with the consent and authorization of schools and parents/guardians. We do not knowingly collect personal information from children under 13 without proper parental consent. If you believe we have inadvertently collected such information, please contact us immediately so we can take appropriate action.
             </p>
           </section>
 
@@ -174,9 +174,9 @@ const PrivacyPolicy = () => {
             </p>
             
             <div className="bg-gray-50 border border-gray-200 p-6">
-              <p className="font-semibold text-gray-900 mb-3">EduCore OS</p>
-              <p className="text-gray-700 mb-2">Email: <a href="mailto:privacy@educore.ng" className="text-[#1e3a8a] hover:underline">privacy@educore.ng</a></p>
-              <p className="text-gray-700 mb-2">Support: <a href="mailto:support@educore.ng" className="text-[#1e3a8a] hover:underline">support@educore.ng</a></p>
+              <p className="font-semibold text-gray-900 mb-3">Skoolar</p>
+              <p className="text-gray-700 mb-2">Email: <a href="mailto:privacy@skoolar.com" className="text-[#1e3a8a] hover:underline">privacy@skoolar.com</a></p>
+              <p className="text-gray-700 mb-2">Support: <a href="mailto:support@skoolar.com" className="text-[#1e3a8a] hover:underline">support@skoolar.com</a></p>
               <p className="text-gray-700 mb-2">Phone: +234 801 234 5678</p>
               <p className="text-gray-700">Address: Lagos, Nigeria</p>
             </div>
@@ -186,7 +186,7 @@ const PrivacyPolicy = () => {
             <h2 className="text-xl font-bold text-gray-900 mb-4">NDPR Compliance Statement</h2>
             
             <p className="leading-relaxed">
-              EduCore OS is committed to full compliance with the Nigeria Data Protection Regulation (NDPR) 2019 and other applicable data protection laws. We have implemented appropriate technical and organizational measures to ensure the security, confidentiality, and integrity of personal data processed through our platform. Our data protection practices are regularly reviewed and updated to maintain the highest standards of privacy protection.
+              Skoolar is committed to full compliance with the Nigeria Data Protection Regulation (NDPR) 2019 and other applicable data protection laws. We have implemented appropriate technical and organizational measures to ensure the security, confidentiality, and integrity of personal data processed through our platform. Our data protection practices are regularly reviewed and updated to maintain the highest standards of privacy protection.
             </p>
           </section>
 

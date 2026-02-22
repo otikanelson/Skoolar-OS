@@ -12,7 +12,7 @@ const TourGuide = () => {
 
   const tutorialSteps = [
     {
-      title: 'Welcome to EduCore',
+      title: 'Welcome to Skoolar',
       description: 'Let us show you around our academic management platform. This comprehensive tour will take you through different pages to show you everything we offer.',
       target: null,
       position: 'center',
@@ -65,14 +65,14 @@ const TourGuide = () => {
     },
     {
       title: 'Register Your School',
-      description: 'Click this button to start the registration process. It only takes a few minutes to get your school set up on EduCore!',
+      description: 'Click this button to start the registration process. It only takes a few minutes to get your school set up on Skoolar!',
       target: 'register-button',
       position: 'bottom',
       page: '/',
     },
     {
       title: 'Already Registered?',
-      description: 'If your school is already registered, use this button to login to your portal. That completes our tour - thank you for exploring EduCore!',
+      description: 'If your school is already registered, use this button to login to your portal. That completes our tour - thank you for exploring Skoolar!',
       target: 'login-button',
       position: 'bottom',
       page: '/',
@@ -84,17 +84,17 @@ const TourGuide = () => {
     
     if (tutorialStep < tutorialSteps.length - 1) {
       if (currentStep.navigate) {
-        sessionStorage.setItem('educore_tour_step', (tutorialStep + 1).toString());
+        sessionStorage.setItem('skoolar_tour_step', (tutorialStep + 1).toString());
         navigate(currentStep.navigate);
       } else {
         setTutorialStep(prev => prev + 1);
-        sessionStorage.setItem('educore_tour_step', (tutorialStep + 1).toString());
+        sessionStorage.setItem('skoolar_tour_step', (tutorialStep + 1).toString());
       }
     } else {
       setShowTutorial(false);
       setTutorialStep(0);
-      sessionStorage.removeItem('educore_tour_active');
-      sessionStorage.removeItem('educore_tour_step');
+      sessionStorage.removeItem('skoolar_tour_active');
+      sessionStorage.removeItem('skoolar_tour_step');
       cleanupHighlights();
     }
   };
@@ -102,8 +102,8 @@ const TourGuide = () => {
   const skipTutorial = () => {
     setShowTutorial(false);
     setTutorialStep(0);
-    sessionStorage.removeItem('educore_tour_active');
-    sessionStorage.removeItem('educore_tour_step');
+    sessionStorage.removeItem('skoolar_tour_active');
+    sessionStorage.removeItem('skoolar_tour_step');
     cleanupHighlights();
   };
 
@@ -121,14 +121,14 @@ const TourGuide = () => {
   };
 
   useEffect(() => {
-    const hasVisited = localStorage.getItem('educore_visited');
-    const tourActive = sessionStorage.getItem('educore_tour_active');
-    const tourStep = sessionStorage.getItem('educore_tour_step');
+    const hasVisited = localStorage.getItem('skoolar_visited');
+    const tourActive = sessionStorage.getItem('skoolar_tour_active');
+    const tourStep = sessionStorage.getItem('skoolar_tour_step');
     
     if (!hasVisited && !tourActive && location.pathname === '/') {
       setShowTutorial(true);
-      sessionStorage.setItem('educore_tour_active', 'true');
-      localStorage.setItem('educore_visited', 'true');
+      sessionStorage.setItem('skoolar_tour_active', 'true');
+      localStorage.setItem('skoolar_visited', 'true');
     } else if (tourActive === 'true' && tourStep) {
       // Add delay to ensure page is fully loaded before showing tour
       setTimeout(() => {

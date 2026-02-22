@@ -88,7 +88,7 @@ const PendingVerification = () => {
               Logout
             </button>
             <a
-              href="mailto:support@educore.ng"
+              href="mailto:support@skoolar.com"
               className="px-6 py-2 bg-[#1e3a8a] text-white font-medium hover:bg-blue-800 transition-colors"
             >
               Contact Support

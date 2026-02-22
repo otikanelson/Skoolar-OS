@@ -86,7 +86,7 @@ const DirectLogin = () => {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="mb-6"
           >
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">EduCore OS</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Skoolar</h1>
             <p className="text-sm text-gray-600">Academic Management Platform</p>
           </motion.div>
         </div>

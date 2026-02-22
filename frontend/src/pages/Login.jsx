@@ -31,7 +31,7 @@ const Login = () => {
             className="bg-white border border-gray-300 rounded px-4 py-2 inline-block mb-4"
           >
             <span className="text-sm text-gray-600">School Portal: </span>
-            <span className="text-sm font-mono text-[#1e3a8a] font-semibold">fieldgreen.educore.ng</span>
+            <span className="text-sm font-mono text-[#1e3a8a] font-semibold">fieldgreen.skoolar.com</span>
           </motion.div>
           <h1 className="text-2xl font-bold text-gray-900 mb-1">Fieldgreen Secondary School</h1>
           <p className="text-sm text-gray-600">Academic Management System</p>
@@ -134,7 +134,7 @@ const Login = () => {
           </Link>
         </motion.div>
         <div className="text-center mt-4">
-          <p className="text-xs text-gray-500">Powered by EduCore OS</p>
+          <p className="text-xs text-gray-500">Powered by Skoolar</p>
         </div>
       </motion.div>
     </div>

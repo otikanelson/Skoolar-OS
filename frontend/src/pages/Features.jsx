@@ -143,7 +143,7 @@ const Features = () => {
             Ready to Transform Your School?
           </h2>
           <p className="text-gray-200 mb-8 text-lg">
-            See how EduCore can streamline your academic management
+            See how Skoolar can streamline your academic management
           </p>
           <div className="flex gap-4 justify-center">
             <Link 

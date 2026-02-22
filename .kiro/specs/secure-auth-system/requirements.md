@@ -1,8 +1,8 @@
-# EduCore Secure Authentication System - Requirements
+# Skoolar Secure Authentication System - Requirements
 
 ## 1. Overview
 
-Build a production-grade, security-hardened authentication and authorization system for EduCore, a multi-tenant school management platform handling sensitive student, staff, and academic data.
+Build a production-grade, security-hardened authentication and authorization system for Skoolar, a multi-tenant school management platform handling sensitive student, staff, and academic data.
 
 ## 2. User Stories
 
@@ -247,7 +247,7 @@ Build a production-grade, security-hardened authentication and authorization sys
 
 ## 6. Comprehensive Security Measures for Project Implementation
 
-This section outlines security measures that must be implemented across the entire EduCore platform, not just authentication. These are critical for protecting sensitive educational data.
+This section outlines security measures that must be implemented across the entire Skoolar platform, not just authentication. These are critical for protecting sensitive educational data.
 
 ### 6.1 Application Security
 
@@ -285,7 +285,7 @@ This section outlines security measures that must be implemented across the enti
 - **React automatic escaping:** Leverage React's built-in XSS protection
 - **Content Security Policy (CSP):** Implement strict CSP headers
   ```
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.educore.ng
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.skoolar.com
   ```
 
 #### 6.1.3 Authentication & Session Security

@@ -2,21 +2,21 @@
   "version": 2,
   "builds": [
     {
-      "src": "educore-os/frontend/package.json",
+      "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "educore-os/frontend/dist"
+        "distDir": "frontend/dist"
       }
     },
     {
-      "src": "educore-os/backend/api/index.ts",
+      "src": "backend/api/index.ts",
       "use": "@vercel/node"
     }
   ],
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "/educore-os/backend/api/index.ts"
+      "destination": "/backend/api/index.ts"
     }
   ],
   "headers": [

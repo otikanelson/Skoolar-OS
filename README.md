@@ -63,7 +63,7 @@ Skoolar is a comprehensive, multi-tenant SaaS platform that empowers educational
 
 ```
 skoolar/
-├── educore-os/
+├── skoolar-platform/
 │   ├── backend/              # NestJS API
 │   │   ├── api/             # Serverless function entry
 │   │   ├── prisma/          # Database schema & migrations
@@ -105,7 +105,7 @@ cd skoolar
 ### 2. Backend Setup
 
 ```bash
-cd educore-os/backend
+cd skoolar-platform/backend
 npm install
 ```
 
@@ -133,7 +133,7 @@ Backend runs on `http://localhost:3000`
 ### 3. Frontend Setup
 
 ```bash
-cd educore-os/frontend
+cd skoolar-platform/frontend
 npm install
 ```
 
@@ -153,7 +153,7 @@ Frontend runs on `http://localhost:5173`
 ### 4. Create Manufacturer Account
 
 ```bash
-cd educore-os/backend
+cd skoolar-platform/backend
 node create-manufacturer.js "Admin Name" "admin@skoolar.com" "SecurePassword123!"
 ```
 
