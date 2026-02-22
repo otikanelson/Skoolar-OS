@@ -7,6 +7,16 @@ import express from 'express';
 const server = express();
 
 export default async (req, res) => {
+  // Handle preflight OPTIONS requests
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Origin', 'https://skoolar-os.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.status(200).end();
+    return;
+  }
+
   if (!global.app) {
     const app = await NestFactory.create(
       AppModule,
