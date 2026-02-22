@@ -9,7 +9,7 @@ async function bootstrap() {
   const allowedOrigins = [
     'http://localhost:5173',
     'https://skoolar-os.vercel.app',
-  ];
+  ];``
   
   app.enableCors({
     origin: (origin, callback) => {
