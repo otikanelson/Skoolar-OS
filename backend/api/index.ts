@@ -2,84 +2,94 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { AppModule } from '../src/app.module';
-import express from 'express';
+import express, { Request, Response } from 'express';
 
-const server = express();
+const expressApp = express();
+let app: any;
 
-export default async (req, res) => {
-  console.log('🔵 Incoming request:', {
-    method: req.method,
-    url: req.url,
-    origin: req.headers.origin,
-    headers: req.headers
-  });
-
-  // Handle preflight OPTIONS requests
-  if (req.method === 'OPTIONS') {
-    console.log('✅ Handling OPTIONS preflight request');
-    res.setHeader('Access-Control-Allow-Origin', 'https://skoolar-os.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    console.log('✅ OPTIONS response headers set:', {
-      'Access-Control-Allow-Origin': 'https://skoolar-os.vercel.app',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization, Accept',
-      'Access-Control-Allow-Credentials': 'true'
-    });
-    res.status(200).end();
-    return;
-  }
-
-  if (!global.app) {
+async function bootstrap() {
+  if (!app) {
     console.log('🟡 Initializing NestJS app...');
-    const app = await NestFactory.create(
-      AppModule,
-      new ExpressAdapter(server),
-    );
     
-    // Enable CORS for both local and production
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'https://skoolar-os.vercel.app',
-    ];
-    
-    console.log('🟡 Allowed origins:', allowedOrigins);
-    
-    app.enableCors({
-      origin: (origin, callback) => {
-        console.log('🔍 CORS check for origin:', origin);
-        
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin) {
-          console.log('✅ No origin - allowing request');
-          return callback(null, true);
-        }
-        
-        if (allowedOrigins.includes(origin)) {
-          console.log('✅ Origin allowed:', origin);
-          callback(null, true);
-        } else {
-          console.log('⚠️ Origin not in allowed list:', origin);
-          callback(null, true); // Allow anyway for now
-        }
-      },
-      credentials: true,
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
-      exposedHeaders: ['Authorization'],
-    });
-    
-    app.useGlobalPipes(new ValidationPipe({
-      whitelist: true,
-      transform: true,
-    }));
-    
-    await app.init();
-    global.app = app;
-    console.log('✅ NestJS app initialized');
+    try {
+      app = await NestFactory.create(
+        AppModule,
+        new ExpressAdapter(expressApp),
+        { logger: ['error', 'warn', 'log'] }
+      );
+      
+      // Enable CORS
+      const allowedOrigins = [
+        'http://localhost:5173',
+        'https://skoolar-os.vercel.app',
+      ];
+      
+      console.log('🟡 Allowed origins:', allowedOrigins);
+      
+      app.enableCors({
+        origin: (origin: string, callback: Function) => {
+          console.log('🔍 CORS check for origin:', origin);
+          
+          if (!origin || allowedOrigins.includes(origin)) {
+            console.log('✅ Origin allowed:', origin);
+            callback(null, true);
+          } else {
+            console.log('⚠️ Origin not in allowed list, but allowing anyway:', origin);
+            callback(null, true);
+          }
+        },
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+        exposedHeaders: ['Authorization'],
+      });
+      
+      app.useGlobalPipes(new ValidationPipe({
+        whitelist: true,
+        transform: true,
+      }));
+      
+      await app.init();
+      console.log('✅ NestJS app initialized successfully');
+    } catch (error) {
+      console.error('❌ Failed to initialize NestJS app:', error);
+      throw error;
+    }
   }
   
-  console.log('🟢 Forwarding request to NestJS app');
-  return server(req, res);
-};
+  return app;
+}
+
+export default async function handler(req: Request, res: Response) {
+  try {
+    console.log('🔵 Incoming request:', {
+      method: req.method,
+      url: req.url,
+      origin: req.headers.origin,
+    });
+
+    // Handle preflight OPTIONS requests immediately
+    if (req.method === 'OPTIONS') {
+      console.log('✅ Handling OPTIONS preflight request');
+      res.setHeader('Access-Control-Allow-Origin', req.headers.origin || 'https://skoolar-os.vercel.app');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+      res.status(200).end();
+      return;
+    }
+
+    // Initialize NestJS app
+    await bootstrap();
+    
+    console.log('🟢 Forwarding request to NestJS app');
+    return expressApp(req, res);
+  } catch (error) {
+    console.error('❌ Handler error:', error);
+    res.status(500).json({ 
+      error: 'Internal Server Error',
+      message: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    });
+  }
+}
